@@ -3,10 +3,10 @@ import { NavLink } from 'react-router';
 import NavItem from './NavItem';
 
 const links = [
-  { linkText: 'Home', linkTo: '/' },
-  { linkText: 'About', linkTo: '/about' },
-  { linkText: 'Services', linkTo: '/services' },
-  { linkText: 'Contact', linkTo: '/contact' },
+  { linkText: 'Our Services', linkTo: '/' },
+  { linkText: 'Why Us', linkTo: '/about' },
+  { linkText: 'Testimonial', linkTo: '/services' },
+  { linkText: 'FAQ', linkTo: '/contact' },
 ];
 
 const Header = () => {

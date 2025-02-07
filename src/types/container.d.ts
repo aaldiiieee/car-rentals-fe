@@ -9,3 +9,11 @@ export interface IHeroContentProps {
   buttonText: string;
   buttonLink: string;
 }
+
+export interface IContentSectionProps {
+  title: string;
+  description: string;
+  className?: string
+  imageUrl?: string;
+  children?: React.ReactNode
+}
