@@ -23,6 +23,9 @@ export default {
           "2xl": "1496px",
         },
       },
+      boxShadow: {
+        heroForm: "0px 0px 10px 0px #00000026",
+      }
     },
   },
   plugins: [require("tailwindcss-animate")],
