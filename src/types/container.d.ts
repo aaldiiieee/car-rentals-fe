@@ -13,6 +13,8 @@ export interface IHeroContentProps {
 export interface IContentSectionProps {
   title: string;
   description: string;
+  maxWidth: string;
+  textCenter?: "desktop" | "mobile" | "all";
   className?: string
   imageUrl?: string;
   children?: React.ReactNode
