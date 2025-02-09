@@ -1,13 +1,7 @@
 import { useState } from 'react';
 import { NavLink } from 'react-router';
 import NavItem from './NavItem';
-
-const links = [
-  { linkText: 'Our Services', linkTo: '/' },
-  { linkText: 'Why Us', linkTo: '/about' },
-  { linkText: 'Testimonial', linkTo: '/services' },
-  { linkText: 'FAQ', linkTo: '/contact' },
-];
+import { LINKS } from '@/constants/landingPage';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
@@ -58,7 +52,7 @@ const Header = () => {
             } w-full md:block md:w-auto`}
             id="navbar-default"
           >
-            <NavItem links={links} withButton />
+            <NavItem links={LINKS} withButton />
           </div>
         </div>
       </nav>
