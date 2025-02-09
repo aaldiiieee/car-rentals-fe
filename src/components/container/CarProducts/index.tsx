@@ -7,10 +7,13 @@ import {
   CardContent,
 } from "@/components/ui/card";
 import { ICars } from "@/types/res";
-import { Button } from "@/components/ui/button";
 import { Users, Settings, Calendar } from "lucide-react";
+import { useNavigate } from "react-router";
+import { Button } from "@/components/ui/button";
 
 const CarProducts = ({ data }: { data: ICars[] }) => {
+  const navigate = useNavigate();
+
   return (
     <>
       {data?.map((car: ICars) => (
@@ -46,7 +49,16 @@ const CarProducts = ({ data }: { data: ICars[] }) => {
             </CardDescription>
           </CardContent>
           <CardFooter>
-            <Button className="w-full rounded-none">Sewa Mobil</Button>
+            <Button
+              className="w-full rounded-none"
+              onClick={() => {
+                navigate(
+                  `/detail-mobil/${car.mcp_manufacture}/${car.mcp_model}/${car.mcp_uuid}`
+                );
+              }}
+            >
+              Detail Mobil
+            </Button>
           </CardFooter>
         </Card>
       ))}

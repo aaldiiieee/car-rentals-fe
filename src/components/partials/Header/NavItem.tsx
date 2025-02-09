@@ -37,7 +37,7 @@ const NavItem = ({
           size={"lg"}
           onClick={() => navigate("/login")}
         >
-          Login
+          Masuk
         </Button>
       )}
     </ul>

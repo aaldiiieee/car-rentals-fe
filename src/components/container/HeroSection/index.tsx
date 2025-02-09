@@ -8,7 +8,7 @@ const HeroSection = ({ withContent, withSearch }: IHeroSection) => {
       className={`${
         withContent
           ? "lg:min-h-[500px] md:min-h-[700px] min-h-[586px]"
-          : "min-h-[266px]"
+          : "min-h-[120px]"
       } relative flex lg:items-center`}
     >
       <div className="container">

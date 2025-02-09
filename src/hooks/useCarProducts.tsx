@@ -1,12 +1,26 @@
 import { useQuery } from "@tanstack/react-query";
-import { getCars } from "@/services/cars.service";
+import { getCars, getCarByUUID } from "@/services/cars.service";
+import { useSearchParams } from "react-router";
 
 export const useCarProducts = () => {
+  const [searchParams] = useSearchParams();
+
+  const driverType = searchParams.get("driverType") || "";
+  const totalPassengers = searchParams.get("totalPassengers") || "";
+
   const carsQuery = useQuery({
-    queryKey: ["cars"],
-    queryFn: getCars,
+    queryKey: ["cars", { driverType, totalPassengers }],
+    queryFn: () => getCars({ driverType, totalPassengers }),
     staleTime: 60 * 60 * 1000,
   });
 
-  return { data: carsQuery.data };
+  const useGetDetailCar = (uuid: string) => {
+    return useQuery({
+      queryKey: ["carDetail"],
+      queryFn: () => getCarByUUID(uuid),
+      enabled: !!uuid,
+    });
+  };
+
+  return { data: carsQuery.data, useGetDetailCar };
 };
