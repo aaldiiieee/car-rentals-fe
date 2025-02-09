@@ -17,7 +17,7 @@ const HeroSection = ({ withContent, withSearch }: IHeroSection) => {
             title="Sewa & Rental Mobil Terbaik di kawasan Tangerang"
             description="Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam."
             buttonText="Mulai Sewa Mobil"
-            buttonLink="/cars"
+            buttonLink="/daftar-mobil"
           />
         )}
 
