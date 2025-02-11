@@ -1,6 +1,6 @@
 export interface IHeroSection {
   withContent?: boolean;
-  withSearch?: boolean;
+  form?: "filter" | "register";
 }
 
 export interface IHeroContentProps {

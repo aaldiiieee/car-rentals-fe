@@ -16,7 +16,7 @@ export const useCarProducts = () => {
 
   const useGetDetailCar = (uuid: string) => {
     return useQuery({
-      queryKey: ["carDetail"],
+      queryKey: ["carDetail", uuid],
       queryFn: () => getCarByUUID(uuid),
       enabled: !!uuid,
     });

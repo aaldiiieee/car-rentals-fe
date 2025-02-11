@@ -14,5 +14,5 @@ export const getCars = async (filters: {
 
 export const getCarByUUID = async (uuid: string) => {
   const response = await callApiUrl.get(`/cars/get-car/${uuid}`);
-  return response.data.data;
+  return response.data;
 };

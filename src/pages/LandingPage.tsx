@@ -125,8 +125,12 @@ const LandingPage = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex" />
-            <CarouselNext className="hidden md:flex" />
+            {testimonials?.length > 3 && (
+              <>
+                <CarouselPrevious className="hidden md:flex" />
+                <CarouselNext className="hidden md:flex" />
+              </>
+            )}
           </Carousel>
         </ContentSection>
       )}

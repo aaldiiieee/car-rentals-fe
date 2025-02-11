@@ -8,9 +8,9 @@ const DetailCarLayout = ({ children }: { children: React.ReactNode }) => {
     <React.Fragment>
       <div className="bg-[#F1F3FF]">
         <Header />
-        <HeroSection withSearch />
+        <HeroSection form="register" />
       </div>
-      <div className="container min-h-screen">{children}</div>
+      <div className="container mt-20">{children}</div>
       <Footer />
     </React.Fragment>
   );

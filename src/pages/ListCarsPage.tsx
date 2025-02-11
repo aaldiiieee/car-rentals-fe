@@ -1,6 +1,6 @@
 import CarsListLayout from "@/components/layouts/CarsListLayout";
 import { useCarProducts } from "@/hooks/useCarProducts";
-import CarProducts from "@/components/container/CarProducts";
+import CarProducts from "@/components/modules/CarProducts";
 
 const ListCarsPage = () => {
   const { data: cars } = useCarProducts();
