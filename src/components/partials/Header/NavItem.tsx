@@ -2,6 +2,9 @@ import React from "react";
 import { INavItem } from "@/types/ui";
 import { NavLink, useNavigate, useLocation } from "react-router";
 import { Button } from "@/components/ui/button";
+import AvatarDropdown from "@/components/ui/avatar";
+import { useSession } from "@/context/AuthContext";
+import { IAuthContext } from "@/types/context";
 
 const NavItem = ({
   links,
@@ -12,6 +15,8 @@ const NavItem = ({
 }) => {
   const navigate = useNavigate();
   const location = useLocation();
+
+  const { token, user, signOut } = useSession() as IAuthContext;
 
   return (
     <ul className="flex font-light md:items-center flex-col p-4 md:p-0 mt-4 border rounded-lg md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0">
@@ -31,15 +36,17 @@ const NavItem = ({
         </React.Fragment>
       )}
       
-      {withButton && (
+      {withButton && !token && (
         <Button
           variant="default"
           size={"lg"}
-          onClick={() => navigate("/login")}
+          onClick={() => navigate("/auth/login")}
         >
           Masuk
         </Button>
       )}
+
+      {token && user && <AvatarDropdown user={user} signOut={signOut} />}
     </ul>
   );
 };

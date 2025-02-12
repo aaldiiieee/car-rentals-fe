@@ -27,12 +27,23 @@ const FilterSearch = () => {
   const totalPassengers = searchParams.get("totalPassengers");
 
   const existingParams = driverType === null && totalPassengers === null;
-  const disabled = driverType !== null || totalPassengers !== null;
+  const disabled = totalPassengers !== null;
 
-  const { handleSubmit, reset, setValue } =
+  const { reset, setValue, getValues } =
     useForm<FilterFormValues>();
 
-  const onSubmit = (data: FilterFormValues) => {
+  // const onSubmit = (data: FilterFormValues) => {
+  //   const newParams = new URLSearchParams();
+  //   Object.entries(data).forEach(([key, value]) => {
+  //     if (value) {
+  //       newParams.set(key, value);
+  //     }
+  //   });
+  //   setSearchParams(newParams);
+  // };
+
+  const updateSearchParams = () => {
+    const data = getValues();
     const newParams = new URLSearchParams();
     Object.entries(data).forEach(([key, value]) => {
       if (value) {
@@ -42,6 +53,7 @@ const FilterSearch = () => {
     setSearchParams(newParams);
   };
 
+
   const handleReset = () => {
     reset();
     setSearchParams(new URLSearchParams());
@@ -49,10 +61,16 @@ const FilterSearch = () => {
 
   return (
     <form
-      onSubmit={handleSubmit(onSubmit)}
-      className="grid grid-cols-1 md:grid-cols-4 items-center gap-4"
+      // onSubmit={handleSubmit(onSubmit)}
+      className={`grid grid-cols-1 ${existingParams ? "md:grid-cols-3" : "md:grid-cols-4"} items-center gap-4`}
     >
-      <Select onValueChange={(value) => setValue("driverType", value)} disabled={disabled}>
+      <Select 
+        onValueChange={(value) => {
+          setValue("driverType", value);
+          updateSearchParams();
+        }} 
+        disabled={disabled}
+      >
         <SelectTrigger>
           <SelectValue placeholder="Pilih Tipe Driver" />
         </SelectTrigger>
@@ -74,7 +92,13 @@ const FilterSearch = () => {
 
       <DatePickerWithRange disabled={disabled} />
 
-      <Select onValueChange={(value) => setValue("totalPassengers", value)} disabled={disabled}>
+      <Select
+        onValueChange={(value) => {
+          setValue("totalPassengers", value);
+          updateSearchParams();
+        }}
+        disabled={disabled}
+      >
         <SelectTrigger>
           <SelectValue placeholder="Jumlah Penumpang" />
         </SelectTrigger>
@@ -92,11 +116,7 @@ const FilterSearch = () => {
         </SelectContent>
       </Select>
 
-      {existingParams ? (
-        <Button type="submit" variant="default">
-          Cari
-        </Button>
-      ) : (
+      {existingParams ? null : (
         <Button type="button" onClick={handleReset} variant="destructive">
           Reset
         </Button>

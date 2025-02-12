@@ -10,7 +10,8 @@ export default {
   			sm: 'calc(var(--radius) - 4px)'
   		},
   		colors: {
-  			default: '#5CB85F'
+  			default: '#5CB85F',
+			secondary: '#0D28A6'
   		},
   		container: {
   			center: true,

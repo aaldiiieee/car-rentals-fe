@@ -9,8 +9,12 @@
 import { IHeroSection } from "@/types/container";
 import HeroContent from "./HeroContent";
 import HeroForm from "./HeroForm";
+import { useSession } from "@/context/AuthContext";
+import { IAuthContext } from "@/types/context";
 
 const HeroSection = ({ withContent, form }: IHeroSection) => {
+  const { user } = useSession() as IAuthContext;
+
   return (
     <section
       className={`${
@@ -22,7 +26,7 @@ const HeroSection = ({ withContent, form }: IHeroSection) => {
       <div className="container">
         {withContent && (
           <HeroContent
-            title="Sewa & Rental Mobil Terbaik di kawasan Tangerang"
+            title={user ? `Selamat Datang, ${user?.mu_full_name}!` : `Sewa & Rental Mobil Terbaik di kawasan Tangerang`}
             description="Selamat datang di Binar Car Rental. Kami menyediakan mobil kualitas terbaik dengan harga terjangkau. Selalu siap melayani kebutuhanmu untuk sewa mobil selama 24 jam."
             buttonText="Mulai Sewa Mobil"
             buttonLink="/daftar-mobil"
