@@ -36,6 +36,7 @@ const AvatarDropdown = ({ user, signOut }: AvatarDropdownProps) => {
           className="absolute z-50 right-0 mt-2 w-48 bg-white border border-gray-200 rounded-lg shadow-lg"
           onClick={closeDropdown}
         >
+          <p className="px-4 py-2 text-sm font-medium text-gray-700">{user?.mu_full_name || "Guest"}</p>
           <button
             onClick={() => console.log("Navigating to Profile")}
             className="flex items-center gap-2 w-full px-4 py-2 text-left text-sm text-gray-700 hover:bg-gray-100"

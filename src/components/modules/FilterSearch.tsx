@@ -32,6 +32,15 @@ const FilterSearch = () => {
   const { reset, setValue, getValues } =
     useForm<FilterFormValues>();
 
+  const uniqueCapacities = Array.from(
+    new Set(cars?.map((car: ICars) => car.mcp_capacity))
+  ).sort((a, b) => (a as number) - (b as number));
+
+  const uniqueRentTypes = Array.from(
+    new Set(cars?.map((car: ICars) => car.mcp_rent_type))
+  ).sort();
+  console.log(uniqueRentTypes);
+
   // const onSubmit = (data: FilterFormValues) => {
   //   const newParams = new URLSearchParams();
   //   Object.entries(data).forEach(([key, value]) => {
@@ -82,14 +91,6 @@ const FilterSearch = () => {
         </SelectContent>
       </Select>
 
-      {/* <Input
-        type="date"
-        placeholder="Pilih Tanggal"
-        disabled={disabled}
-        {...register("date")}
-        className=""
-      /> */}
-
       <DatePickerWithRange disabled={disabled} />
 
       <Select
@@ -100,18 +101,20 @@ const FilterSearch = () => {
         disabled={disabled}
       >
         <SelectTrigger>
-          <SelectValue placeholder="Jumlah Penumpang" />
+          <SelectValue placeholder="Jumlah Penumpang">
+            {totalPassengers ? `${totalPassengers} Penumpang` : "Jumlah Penumpang"}
+          </SelectValue>
         </SelectTrigger>
         <SelectContent>
           <SelectGroup>
-            {cars?.map((car: ICars) => (
-              <SelectItem
-                key={car.mcp_uuid}
-                value={car.mcp_capacity.toString()}
-              >
-                {car.mcp_capacity} Penumpang
-              </SelectItem>
-            ))}
+          {uniqueCapacities.map((capacity) => (
+            <SelectItem
+              key={capacity?.toString()}
+              value={capacity as string}
+            >
+              {capacity as string} Penumpang
+            </SelectItem>
+          ))}
           </SelectGroup>
         </SelectContent>
       </Select>

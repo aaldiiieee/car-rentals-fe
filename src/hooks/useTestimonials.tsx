@@ -9,7 +9,7 @@ export const useTestimonials = () => {
   const testimonialsQuery = useQuery({
     queryKey: ["testimonials"],
     queryFn: getTestimonials,
-    staleTime: 60 * 60 * 1000, // 1 hour
+    staleTime: 60 * 60 * 5000, // 5 hour
   });
 
   const addTestimonialMutation = useMutation({

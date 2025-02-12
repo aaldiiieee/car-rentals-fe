@@ -22,5 +22,10 @@ export const useCarProducts = () => {
     });
   };
 
-  return { data: carsQuery.data, useGetDetailCar };
+  return {
+    data: carsQuery.data, 
+    isLoading: carsQuery.isLoading,
+    isError: carsQuery.isError,
+    useGetDetailCar
+  };
 };

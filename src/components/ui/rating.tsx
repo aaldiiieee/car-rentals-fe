@@ -6,7 +6,7 @@ interface RatingShowProps {
 
 const RatingShow: React.FC<RatingShowProps> = ({ value }) => {
   return (
-    <div className="rating-show">
+    <div className="rating-show md:block flex justify-center md:mb-0 mb-5">
       {Array.from({ length: 5 }, (_, index) => {
         const isFilled = index + 1 <= value;
         return (

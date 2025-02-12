@@ -103,7 +103,7 @@ const LandingPage = () => {
                   key={item.mt_id}
                   className="md:basis-1/2 lg:basis-1/3"
                 >
-                  <Card className="bg-[#F1F3FF] border-0">
+                  <Card className="bg-[#F1F3FF] border-0 min-h-[150px]">
                     <CardHeader className="md:flex-row gap-3 items-center">
                       <img
                         src={
@@ -118,7 +118,7 @@ const LandingPage = () => {
                         <CardTitle className="py-2">
                           {item.user.mu_full_name}
                         </CardTitle>
-                        <CardDescription>{item.mt_comment}</CardDescription>
+                        <CardDescription className="line-clamp-2">{item.mt_comment}</CardDescription>
                       </div>
                     </CardHeader>
                   </Card>

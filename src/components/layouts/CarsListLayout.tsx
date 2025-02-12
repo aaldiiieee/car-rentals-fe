@@ -19,7 +19,11 @@ const CarsListLayout = ({ children }: { children: React.ReactNode }) => {
         <HeroSection withContent={withContent} form="filter" />
       </div>
       <div className="container">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pt-16 md:pb-0 pb-10 gap-6">
+        <div
+          className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 md:pb-0 pb-10 gap-6 ${
+            withContent ? "pt-16" : "md:pt-14 pt-64"
+          }`}
+        >
           {children}
         </div>
       </div>

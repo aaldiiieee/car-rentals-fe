@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import {
   Card,
   CardDescription,
@@ -10,9 +11,26 @@ import { ICars } from "@/types/res";
 import { Users, Settings, Calendar } from "lucide-react";
 import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton"
 
-const CarProducts = ({ data }: { data: ICars[] }) => {
+const CarProducts = ({ data, isLoading }: { data: ICars[], isLoading: boolean }) => {
   const navigate = useNavigate();
+
+  if (isLoading) {
+    return (
+      <>
+        {[...Array(3)].map((_: any, index: number) => (
+          <div className="flex flex-col space-y-3" key={index}>
+            <Skeleton className="h-[125px] w-full rounded-xl" />
+            <div className="space-y-2">
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+            </div>
+          </div>
+        ))}
+      </>
+    )
+  }
 
   return (
     <>
@@ -22,7 +40,7 @@ const CarProducts = ({ data }: { data: ICars[] }) => {
             <img
               src={car.mcp_image_url}
               alt={car.mcp_model}
-              className="object-cover max-w-[300px] w-full h-[160px]"
+              className="max-w-[250px] max-h-[138px] w-full object-contain"
             />
           </div>
           <CardHeader>
