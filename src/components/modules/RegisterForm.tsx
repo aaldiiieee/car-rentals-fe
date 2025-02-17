@@ -40,7 +40,6 @@ const RegisterForm = () => {
       mu_full_name: "",
     },
   });
-  console.log(form.getValues());
 
   const onSubmit = (data: IRegisterPayload) => {
     if (currentStep < steps.length - 1) {
