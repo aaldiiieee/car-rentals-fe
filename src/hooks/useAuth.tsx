@@ -1,6 +1,6 @@
 import { useMutation } from "@tanstack/react-query";
-import { login } from "@/services/auth.service";
-import { ILoginPayload } from "@/types/payload";
+import { login, register } from "@/services/auth.service";
+import { ILoginPayload, IRegisterPayload } from "@/types/payload";
 
 export const useAuth = () => {
   const loginMutation = useMutation({
@@ -10,5 +10,12 @@ export const useAuth = () => {
     },
   });
 
-  return { loginMutation };
+  const registerMutation = useMutation({
+    mutationFn: async (data: IRegisterPayload) => {
+      const response = await register(data);
+      return response;
+    },
+  });
+
+  return { loginMutation, registerMutation };
 };

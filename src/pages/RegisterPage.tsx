@@ -1,9 +1,10 @@
 import AuthLayout from "@/components/layouts/AuthLayout";
+import RegisterForm from "@/components/modules/RegisterForm";
 
 const RegisterPage = () => {
   return (
     <AuthLayout>
-      helo
+      <RegisterForm />
     </AuthLayout>
   );
 };

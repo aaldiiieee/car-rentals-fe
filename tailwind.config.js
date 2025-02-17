@@ -48,7 +48,10 @@ export default {
   		animation: {
   			'accordion-down': 'accordion-down 0.2s ease-out',
   			'accordion-up': 'accordion-up 0.2s ease-out'
-  		}
+  		},
+		backgroundImage: {
+			'auth-background': "linear-gradient(to right bottom, rgba(13, 40, 166, 0.6), rgba(13, 40, 166, 0.6)), url('https://res.cloudinary.com/dtl1iioj5/image/upload/v1739757192/car-rentals/la2rrm5hydqs5gmiptdv.png')",
+		}
   	}
   },
   plugins: [require("tailwindcss-animate")],
