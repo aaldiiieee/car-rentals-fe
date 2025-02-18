@@ -22,7 +22,7 @@ const DetailCarProduct = ({ car }: { car: ICars }) => {
           <img
             src={car?.mcp_image_url}
             alt={car?.mcp_model}
-            className="object-cover max-w-[300px] w-full h-[160px]"
+            className="object-cover max-w-[250px] max-h-[138px]"
           />
         </div>
         <CardHeader className="pb-2">

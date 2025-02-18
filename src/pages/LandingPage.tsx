@@ -118,7 +118,9 @@ const LandingPage = () => {
                         <CardTitle className="py-2">
                           {item.user.mu_full_name}
                         </CardTitle>
-                        <CardDescription className="line-clamp-2">{item.mt_comment}</CardDescription>
+                        <CardDescription className="line-clamp-2">
+                          {item.mt_comment}
+                        </CardDescription>
                       </div>
                     </CardHeader>
                   </Card>
@@ -151,32 +153,75 @@ const LandingPage = () => {
       <ContentSection
         title="Frequently Asked Question"
         maxWidth="100%"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit"
+        description="Temukan jawaban atas pertanyaan umum seputar layanan kami."
         className="py-16"
         flexDirection="row"
       >
         <div className="flex flex-col gap-3 md:mt-5 w-full md:max-w-[668px]">
           <Accordion type="multiple">
-            <AccordionItem value="item-1" className="border border-gray-300 px-3 rounded-md">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionItem
+              value="item-1"
+              className="border border-gray-300 px-3 rounded-md mb-3"
+            >
+              <AccordionTrigger>
+                Apa saja syarat yang dibutuhkan?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Syarat yang dibutuhkan meliputi KTP asli, SIM yang masih
+                berlaku, serta dokumen tambahan jika diperlukan, seperti KK atau
+                paspor untuk validasi identitas.
               </AccordionContent>
             </AccordionItem>
-          </Accordion>
-          <Accordion type="multiple">
-            <AccordionItem value="item-2" className="border border-gray-300 px-3 rounded-md">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionItem
+              value="item-2"
+              className="border border-gray-300 px-3 rounded-md mb-3"
+            >
+              <AccordionTrigger>
+                Berapa hari minimal sewa mobil lepas kunci?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Minimal durasi sewa mobil lepas kunci adalah 1 hari (24 jam),
+                dengan jam pengambilan dan pengembalian fleksibel sesuai
+                kesepakatan.
               </AccordionContent>
             </AccordionItem>
-          </Accordion>
-          <Accordion type="multiple">
-            <AccordionItem value="item-3" className="border border-gray-300 px-3 rounded-md">
-              <AccordionTrigger>Is it accessible?</AccordionTrigger>
+            <AccordionItem
+              value="item-3"
+              className="border border-gray-300 px-3 rounded-md mb-3"
+            >
+              <AccordionTrigger>
+                Berapa hari sebelumnya sebaiknya booking sewa mobil?
+              </AccordionTrigger>
               <AccordionContent>
-                Yes. It adheres to the WAI-ARIA design pattern.
+                Disarankan untuk melakukan booking setidaknya 2-3 hari sebelum
+                tanggal penggunaan, terutama pada musim liburan untuk memastikan
+                ketersediaan mobil.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-4"
+              className="border border-gray-300 px-3 rounded-md mb-3"
+            >
+              <AccordionTrigger>
+                Apakah Ada biaya antar-jemput?
+              </AccordionTrigger>
+              <AccordionContent>
+                Ya, biaya antar-jemput akan dikenakan sesuai dengan jarak lokasi
+                pengantaran dan pengambilan dari kantor penyedia layanan kami.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem
+              value="item-5"
+              className="border border-gray-300 px-3 rounded-md"
+            >
+              <AccordionTrigger>
+                Bagaimana jika terjadi kecelakaan?
+              </AccordionTrigger>
+              <AccordionContent>
+                Jika terjadi kecelakaan, segera hubungi pihak kami untuk
+                melaporkan kejadian. Biaya kerusakan akan disesuaikan dengan
+                ketentuan dalam perjanjian sewa, serta asuransi yang berlaku
+                jika telah disertakan.
               </AccordionContent>
             </AccordionItem>
           </Accordion>

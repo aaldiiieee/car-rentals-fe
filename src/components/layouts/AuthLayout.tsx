@@ -1,4 +1,4 @@
-import { useLocation } from "react-router";
+import { useLocation, Link } from "react-router";
 
 const AuthLayout = ({ children }: { children: React.ReactNode }) => {
   const location = useLocation();
@@ -13,6 +13,14 @@ const AuthLayout = ({ children }: { children: React.ReactNode }) => {
               : "max-w-[570px]"
           }`}
         >
+          <Link to="/" className="text-4xl font-bold text-left w-full mb-5">
+            <img
+              src="https://res.cloudinary.com/dtl1iioj5/image/upload/v1739883836/car-rentals/zglbsxujv98cpwhawt8a.png"
+              alt="Logo Brand"
+              width={100}
+              style={{ filter: "invert(1)" }}
+            />
+          </Link>
           {location.pathname === "/auth/login" ? (
             <h1 className="text-2xl font-bold text-left w-full my-5">
               Welcome Back!

@@ -1,12 +1,15 @@
-import { NavLink } from 'react-router';
-import NavItem from './NavItem';
-import { LINKS } from '@/constants/landingPage';
-import AvatarDropdown from '@/components/ui/avatar';
-import { useSession } from '@/context/AuthContext';
-import { IAuthContext } from '@/types/context';
+import { NavLink } from "react-router";
+import NavItem from "./NavItem";
+import { LINKS } from "@/constants/landingPage";
+import AvatarDropdown from "@/components/ui/avatar";
+import { useSession } from "@/context/AuthContext";
+import { IAuthContext } from "@/types/context";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router";
 
 const Header = () => {
-  const { user } = useSession() as IAuthContext;
+  const { user, signOut } = useSession() as IAuthContext;
+  const navigate = useNavigate();
 
   return (
     <header className="bg-transparent border-gray-200 dark:bg-gray-900">
@@ -16,18 +19,27 @@ const Header = () => {
             to="/"
             className="flex items-center space-x-3 rtl:space-x-reverse"
           >
-            <span className="self-center text-2xl font-semibold whitespace-nowrap">
-              CarLoka
-            </span>
+            <img
+              src="https://res.cloudinary.com/dtl1iioj5/image/upload/v1739883836/car-rentals/zglbsxujv98cpwhawt8a.png"
+              alt="Logo Brand"
+              width={100}
+              style={{ filter: "invert(1)" }}
+            />
           </NavLink>
 
           <div className="hidden w-full md:block md:w-auto" id="navbar-default">
             <NavItem links={LINKS} withButton />
           </div>
 
-          {user && (
+          {user ? (
             <div className="md:hidden">
-              <AvatarDropdown user={user} signOut={() => {}} />
+              <AvatarDropdown user={user} signOut={signOut} />
+            </div>
+          ) : (
+            <div className="md:hidden">
+              <Button variant="default" onClick={() => navigate("/auth/login")}>
+                Masuk
+              </Button>
             </div>
           )}
         </div>
