@@ -25,6 +25,7 @@ const FilterSearch = () => {
   const driverType = searchParams.get("driverType");
   const totalPassengers = searchParams.get("totalPassengers");
   const transmission = searchParams.get("transmission");
+  console.log(transmission, "< ini transmission");
 
   const existingParams =
     driverType === null && totalPassengers === null && transmission === null;
@@ -36,6 +37,7 @@ const FilterSearch = () => {
 
   const updateSearchParams = () => {
     const data = getValues();
+    console.log(data);
     const newParams = new URLSearchParams();
     Object.entries(data).forEach(([key, value]) => {
       if (value) {

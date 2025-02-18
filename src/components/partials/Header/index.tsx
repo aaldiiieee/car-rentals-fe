@@ -31,17 +31,15 @@ const Header = () => {
             <NavItem links={LINKS} withButton />
           </div>
 
-          {user ? (
-            <div className="md:hidden">
+          <div className="md:hidden">
+            {user ? (
               <AvatarDropdown user={user} signOut={signOut} />
-            </div>
-          ) : (
-            <div className="md:hidden">
+            ) : (
               <Button variant="default" onClick={() => navigate("/auth/login")}>
                 Masuk
               </Button>
-            </div>
-          )}
+            )}
+          </div>
         </div>
       </nav>
     </header>

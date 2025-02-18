@@ -46,7 +46,7 @@ const RegisterForm = () => {
       setCurrentStep((prev) => prev + 1);
     } else {
       registerMutation.mutate(data, {
-        onSuccess: () => navigate("/login"),
+        onSuccess: () => navigate("/auth/login"),
       });
     }
   };

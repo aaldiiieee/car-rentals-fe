@@ -11,9 +11,19 @@ import { ICars } from "@/types/res";
 import { Users, Settings, Calendar } from "lucide-react";
 import { useNavigate } from "react-router";
 import { Button } from "@/components/ui/button";
-import { Skeleton } from "@/components/ui/skeleton"
+import { Skeleton } from "@/components/ui/skeleton";
 
-const CarProducts = ({ data, isLoading }: { data: ICars[], isLoading: boolean }) => {
+const CarProducts = ({
+  data,
+  isLoading,
+  isError,
+  errorMessage,
+}: {
+  data: ICars[];
+  isLoading: boolean;
+  isError: boolean;
+  errorMessage: string | null;
+}) => {
   const navigate = useNavigate();
 
   if (isLoading) {
@@ -29,7 +39,18 @@ const CarProducts = ({ data, isLoading }: { data: ICars[], isLoading: boolean })
           </div>
         ))}
       </>
-    )
+    );
+  }
+
+  if (isError) {
+    return (
+      <div className="col-span-3 flex justify-center items-center">
+        <div className="flex flex-col space-y-3">
+          <img src="https://res.cloudinary.com/dtl1iioj5/image/upload/v1739894346/car-rentals/uswepf2f8jwan6nthwzz.png" alt="Not Found Image" />
+          <p className="text-center text-gray-500">{errorMessage}</p>
+        </div>
+      </div>
+    );
   }
 
   return (
