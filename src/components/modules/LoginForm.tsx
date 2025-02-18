@@ -19,7 +19,7 @@ const LoginForm = () => {
   const { loginMutation } = useAuth();
   const { signIn } = useSession() as IAuthContext;
   const navigate = useNavigate();
-  
+
   const form = useForm<ILoginPayload>({
     defaultValues: {
       mu_email: "",
@@ -33,14 +33,14 @@ const LoginForm = () => {
         signIn?.(response.data, response.token);
         navigate("/");
       },
-      
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
       onError: (error: any) => {
         if (error.response?.data) {
           const errorData = error.response.data;
           alert(errorData.message);
         } else {
-          alert('Terjadi kesalahan saat login');
+          alert("Terjadi kesalahan saat login");
         }
       },
     });
@@ -48,7 +48,10 @@ const LoginForm = () => {
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="w-full flex flex-col gap-5">
+      <form
+        onSubmit={form.handleSubmit(onSubmit)}
+        className="w-full flex flex-col gap-5"
+      >
         <FormField
           control={form.control}
           name="mu_email"
@@ -56,7 +59,11 @@ const LoginForm = () => {
             <FormItem>
               <FormLabel>Email</FormLabel>
               <FormControl>
-                <Input placeholder="Masukan email anda" {...field} />
+                <Input
+                  placeholder="Masukan email anda"
+                  {...field}
+                  {...form.register("mu_email", { required: true })}
+                />
               </FormControl>
               <FormMessage />
             </FormItem>
@@ -69,12 +76,25 @@ const LoginForm = () => {
             <FormItem>
               <FormLabel>Password</FormLabel>
               <FormControl>
-                <Input placeholder="Masukan password anda" {...field} type="password" />
+                <Input
+                  placeholder="Masukan password anda"
+                  {...field}
+                  {...form.register("mu_password", {
+                    required: true,
+                  })}
+                  type="password"
+                />
               </FormControl>
             </FormItem>
           )}
         />
-        <Button type="submit" variant="secondary" disabled={loginMutation.status === "pending"}>Submit</Button>
+        <Button
+          type="submit"
+          variant="secondary"
+          disabled={loginMutation.status === "pending"}
+        >
+          Submit
+        </Button>
       </form>
     </Form>
   );

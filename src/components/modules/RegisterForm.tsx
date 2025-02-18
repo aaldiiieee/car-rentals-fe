@@ -74,7 +74,14 @@ const RegisterForm = () => {
                 <FormItem>
                   <FormLabel>Email</FormLabel>
                   <FormControl>
-                    <Input placeholder="Masukan email anda" {...field} />
+                    <Input
+                      placeholder="Masukan email anda"
+                      type="email"
+                      {...field}
+                      {...form.register("mu_email", {
+                        required: { value: true, message: "Email is required" },
+                      })}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -89,8 +96,27 @@ const RegisterForm = () => {
                   <FormControl>
                     <Input
                       placeholder="Masukan password anda"
-                      {...field}
                       type="password"
+                      {...field}
+                      {...form.register("mu_password", {
+                        required: {
+                          value: true,
+                          message: "Password is required",
+                        },
+                        minLength: {
+                          value: 8,
+                          message: "Password must be at least 8 characters",
+                        },
+                        maxLength: {
+                          value: 16,
+                          message: "Password must be at most 16 characters",
+                        },
+                        pattern: {
+                          value: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,16}$/,
+                          message:
+                            "Password must contain at least one letter and one number",
+                        },
+                      })}
                     />
                   </FormControl>
                   <FormMessage />
@@ -109,7 +135,11 @@ const RegisterForm = () => {
                 <FormItem>
                   <FormLabel>Nama Lengkap</FormLabel>
                   <FormControl>
-                    <Input placeholder="Masukan nama lengkap anda" {...field} />
+                    <Input
+                      placeholder="Masukan nama lengkap anda"
+                      {...field}
+                      {...form.register("mu_full_name", { required: true })}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -124,6 +154,7 @@ const RegisterForm = () => {
                   <FormControl>
                     <Input
                       placeholder="Masukan nomor telepon anda"
+                      {...form.register("mu_phone_number", { required: true, minLength: 10, maxLength: 15 })}
                       {...field}
                     />
                   </FormControl>
@@ -138,7 +169,11 @@ const RegisterForm = () => {
                 <FormItem>
                   <FormLabel>Alamat</FormLabel>
                   <FormControl>
-                    <Input placeholder="Masukan alamat anda" {...field} />
+                    <Input
+                      placeholder="Masukan alamat anda"
+                      {...field}
+                      {...form.register("mu_address", { required: true })}
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
@@ -157,7 +192,9 @@ const RegisterForm = () => {
               <CardDescription>
                 Nomor Telepon: {form.getValues("mu_phone_number")}
               </CardDescription>
-              <CardDescription>Email: {form.getValues("mu_email")}</CardDescription>
+              <CardDescription>
+                Email: {form.getValues("mu_email")}
+              </CardDescription>
               <CardDescription>
                 Alamat: {form.getValues("mu_address")}
               </CardDescription>

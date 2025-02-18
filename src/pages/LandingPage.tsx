@@ -139,7 +139,7 @@ const LandingPage = () => {
 
       <ContentSection
         title="Sewa Mobil di Tangerang Sekarang"
-        description="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        description="Nikmati layanan sewa mobil di Tangerang dengan harga terbaik dan proses yang cepat. Pilih mobil sesuai kebutuhan Anda dan mulai perjalanan tanpa ribet!"
         maxWidth="100%"
         className="bg-[#0D28A6] p-10 rounded-md text-white"
         textCenter="all"
