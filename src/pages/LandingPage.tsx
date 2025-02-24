@@ -87,18 +87,19 @@ const LandingPage = () => {
         </ContentSection>
       )}
 
-      {testimonials?.length > 0 && (
-        <ContentSection
-          title="Testimonial"
-          description="Berbagai review positif dari para pelanggan kami"
-          maxWidth="100%"
-          className="py-16"
-          textCenter="all"
-          flexDirection="column"
-        >
-          <Carousel opts={{ loop: true }} className="mt-[25px]">
-            <CarouselContent>
-              {testimonials?.map((item: ITestimonials) => (
+      <ContentSection
+        title="Testimonial"
+        description="Berbagai review positif dari para pelanggan kami"
+        maxWidth="100%"
+        className="py-16"
+        textCenter="all"
+        flexDirection="column"
+      >
+        <Carousel opts={{ loop: true }} className="mt-[25px]">
+          <CarouselContent>
+            {testimonials?.map((item: ITestimonials) => (
+              item.mt_show_comment && (
+
                 <CarouselItem
                   key={item.mt_id}
                   className="md:basis-1/2 lg:basis-1/3"
@@ -125,17 +126,17 @@ const LandingPage = () => {
                     </CardHeader>
                   </Card>
                 </CarouselItem>
-              ))}
-            </CarouselContent>
-            {testimonials?.length > 3 && (
-              <>
-                <CarouselPrevious className="hidden md:flex" />
-                <CarouselNext className="hidden md:flex" />
-              </>
-            )}
-          </Carousel>
-        </ContentSection>
-      )}
+              )
+            ))}
+          </CarouselContent>
+          {testimonials?.length > 3 && (
+            <>
+              <CarouselPrevious className="hidden md:flex" />
+              <CarouselNext className="hidden md:flex" />
+            </>
+          )}
+        </Carousel>
+      </ContentSection>
 
       <ContentSection
         title="Sewa Mobil di Tangerang Sekarang"

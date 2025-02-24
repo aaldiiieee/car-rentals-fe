@@ -9,6 +9,7 @@ export interface ITestimonials {
   mt_id:           number;
   mt_rating:       number;
   mt_comment:      string;
+  mt_show_comment: boolean;
   mt_createdAt:    Date;
   mt_updatedAt:    Date;
   user:            IUser;
